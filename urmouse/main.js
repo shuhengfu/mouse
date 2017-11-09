@@ -5,8 +5,9 @@ document.body.appendChild(m);
 m.style.position = "absolute";
 
 //how to make the mouse move with the screen scroll down
-//how to refer them(all the separated files)in json file?
 //is is better to be an object?? to modulate it??
+//how to refer them(all the separated files)in json file?
+//the mouseClick & mouseMove.js are not really working for now btw
 
 
 var codeString = `  var x =100;

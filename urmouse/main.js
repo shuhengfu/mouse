@@ -8,11 +8,6 @@ document.body.appendChild(m);
 // this will then allow us to set it's left/top coordinates later on"
 m.style.position = "fixed";
 
-//how to make the mouse move with the screen scroll down
-//is is better to be an object?? to modulate it??
-//how to refer them(all the separated files)in json file?
-//the mouseClick & mouseMove.js are not really working for now btw
-
 
 var codeString = `  var div = document.createElement('div');
 div.textContent = codeString;
@@ -21,10 +16,10 @@ document.body.appendChild( div );
 `;
 
 //try to make the codeString only appear when i click and will disappear
-var div = document.createElement('div');
-div.textContent = codeString;
-div.style.position = "fixed";
-document.body.appendChild( div );
+// var div = document.createElement('div');
+// div.textContent = codeString;
+// div.style.position = "fixed";
+// document.body.appendChild( div );
 //
 var pre;
 function MouseDown(e){
@@ -87,7 +82,7 @@ timeZone.textContent = Intl.DateTimeFormat()
   m.appendChild(appCodeName);
   m.appendChild(appPlugins);
   m.appendChild(timeZone);
-	m.style.left = e.x+50+"px";
+	m.style.left = e.x+20+"px";
   m.style.top = e.y+50+"px";
 }
 

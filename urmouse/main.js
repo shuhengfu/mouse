@@ -2,7 +2,11 @@
 //mouse move
 var m = document.createElement('div');
 document.body.appendChild(m);
-m.style.position = "absolute";
+
+//nick:
+// "give the element-object a CSS position style of "absolute"
+// this will then allow us to set it's left/top coordinates later on"
+m.style.position = "fixed";
 
 //how to make the mouse move with the screen scroll down
 //is is better to be an object?? to modulate it??
@@ -10,36 +14,43 @@ m.style.position = "absolute";
 //the mouseClick & mouseMove.js are not really working for now btw
 
 
-var codeString = `  var x =100;
-  var y = 100;
-
-  function test(){
-  	console.log('hi);
-  }
+var codeString = `  var div = document.createElement('div');
+div.textContent = codeString;
+div.style.position = "absolute";
+document.body.appendChild( div );
 `;
 
 //try to make the codeString only appear when i click and will disappear
 var div = document.createElement('div');
 div.textContent = codeString;
-div.style.position = "absolute";
+div.style.position = "fixed";
 document.body.appendChild( div );
 //
-
-function onMouseClick(e){
-	var pre = document.createElement('pre');
+var pre;
+function MouseDown(e){
+	pre = document.createElement('pre');
   pre.textContent = codeString;
   // use the e.x && e.y to dynamically place the pre tag
   // wherever the mouse happens to be when it's clicked
-  pre.style.position = "absolute";
-  pre.style.left = e.x+"px";
-  pre.style.top = e.y+"px";
+  pre.style.position = "fixed";
+  pre.style.left = e.x+10+"px";
+  pre.style.top = e.y+10+"px";
+  pre.style.backgroundColor = "red";
   document.body.appendChild(pre);
 }
 
+window.addEventListener('mousedown',MouseDown);
 
-window.addEventListener('click',onMouseClick);
+function MouseUp(e){
+  document.body.removeChild(pre);
+}
 
+window.addEventListener('mouseup',MouseUp);
+// setTimeout (function(){
+//   onMouseClick(e);
+// },1000);
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 function updateMouseXY(e){
 	m.innerHTML = "";
@@ -57,14 +68,33 @@ function updateMouseXY(e){
  let appCodeName = document.createElement('div');
  appCodeName.textContent = navigator.appCodeName;
 
-//oscpu userAgent language ...
+ let appPlugins = document.createElement('div');
+ appPlugins.textContent = navigator.plugins;
+
+let timeZone = document.createElement('div');
+timeZone.textContent = Intl.DateTimeFormat()
+.resolvedOptions()
+.timeZone;
+//oscpu userAgent language Screen resolution
+//Timezone Fonts HTTP ACCEPT Supercookies HTML5 Canvas...
+
+//let scrollElm = document.scrollingElement;
+//scrollElm.scrollTop = 0;
+//document.cookie;
 
   m.appendChild(mousePos);
   m.appendChild(appV);
   m.appendChild(appCodeName);
-
-	m.style.left = e.x+"px";
-  m.style.top = e.y+"px";
+  m.appendChild(appPlugins);
+  m.appendChild(timeZone);
+	m.style.left = e.x+50+"px";
+  m.style.top = e.y+50+"px";
 }
+
+
+
+
+
+
 
 window.addEventListener('mousemove', updateMouseXY);

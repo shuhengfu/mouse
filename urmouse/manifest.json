@@ -13,8 +13,8 @@
 
   "content_scripts": [
     {
-      "matches": ["http://*/*"],
-      "js": ["main.js"]
+      "matches": ["<all_urls>"],
+      "js": ["platform.js", "req.js","main.js"]
     }
   ]
 

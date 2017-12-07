@@ -48,12 +48,25 @@ function updateMouseXY(e){
 
 
 //以下是可以添加的信息内容
+
  let mousePos = document.createElement('div');
  mousePos.textContent = `Hello there, we've noticed that: your mouse is moving at `+ e.x + "(x)" + " " + e.y + "(y)" + " in this window";
 
  let appV = document.createElement('div');
  appV.textContent = "your browser version is " + navigator.appVersion;
 
+ // let appName = document.createElement('div');
+ // appName.textContent = "your browser is " + navigator.appName;
+// Netscape??
+let cookieEnabled = document.createElement('div');
+cookieEnabled.textContent = "and your cookie is " + navigator.cookieEnabled +"ly enabled";
+
+ let hostName = document.createElement('div');
+ hostName.textContent = "your are browsing " +location.hostname;
+
+ let lastPage = document.createElement('div');
+ lastPage.textContent = "your just browsed " + document.referrer;
+ //need an if condition if it's the very first page the person open??
 
  let osCPU = document.createElement('div');
  osCPU.textContent = "and you have " + navigator.hardwareConcurrency + " CPU running in your computer";
@@ -63,23 +76,29 @@ function updateMouseXY(e){
 
  let appCodeName = document.createElement('div');
  appCodeName.textContent = "and you are using the " + platform.name + " browser!!";
+
  // let cpuClass = document.createElement('div');
  // cpuClass.textContent = "The class of CPU: " + navigator.cpuClass;
 
  let osPlatform = document.createElement('div');
  osPlatform.textContent = "your system platform is " + navigator.platform;
 
-
-//navigator.plugins
-
- // let appPlugins = document.createElement('div');
- // appPlugins.textContent = navigator.plugins;
+ let language = document.createElement('div');
+ language.textContent = "system language " + navigator.systemLanguage;
 
 let timeZone = document.createElement('div');
 timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
 .resolvedOptions()
 .timeZone + " ,aren't you?";
 
+// let pathName = document.createElement('div');
+// pathName.textContent = "and you are searching " + location.pathname;
+
+
+//navigator.plugins
+
+ // let appPlugins = document.createElement('div');
+ // appPlugins.textContent = navigator.plugins;
 // ~~~~~~~~~~~~~~~~~~~
 // let plugins = [
 // 	{name:'first'},
@@ -108,14 +127,18 @@ timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
 //每加一项data 都需要在这里叫一下 关联
   m.appendChild(mousePos);
   m.appendChild(appV);
-
+	// m.appendChild(appName);
+	m.appendChild(cookieEnabled);
+	m.appendChild(hostName);
+	m.appendChild(lastPage);
+	m.appendChild(language);
   // m.appendChild(appPlugins);
-
   m.appendChild(osCPU);
   m.appendChild(cpuInfo);
   //m.appendChild(cpuClass);
   m.appendChild(osPlatform);
 	m.appendChild(appCodeName);
+	// m.appendChild(pathName);
   m.appendChild(timeZone);
 /*~~~~*/
   //style of the mousemove
@@ -132,5 +155,5 @@ timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
 
 }
 
-console.log(platform);
+//console.log(platform);
 window.addEventListener('mousemove', updateMouseXY);

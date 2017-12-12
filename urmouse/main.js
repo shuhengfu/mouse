@@ -91,6 +91,28 @@ timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
 .resolvedOptions()
 .timeZone + " ,aren't you?";
 
+let cookie = document.createElement('div');
+cookie.textContent = document.cookie;
+
+// let cookie = document.createElement('div');
+// cookie.textContent = "cookie " + getCookie();
+//
+// function getCookie(name){
+//     /* 获取浏览器所有cookie将其拆分成数组 */
+//     var arr=document.cookie.split('; ');
+//
+//     for(var i=0;i<arr.length;i++)    {
+//         /* 将cookie名称和值拆分进行判断 */
+//         var arr2=arr[i].split('=');
+//         if(arr2[0]==name){
+//             return arr2[1];
+//         }
+//     }
+//     return '';
+// }
+
+//the language you are using is .. navigator.language
+
 // let pathName = document.createElement('div');
 // pathName.textContent = "and you are searching " + location.pathname;
 
@@ -140,6 +162,9 @@ timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
 	m.appendChild(appCodeName);
 	// m.appendChild(pathName);
   m.appendChild(timeZone);
+  m.appendChild(cookie);
+//i got the cookie info but donno what it really stands for with
+//bunch of letters and numbers...and how to convert it into human language
 /*~~~~*/
   //style of the mousemove
 	m.style.left = e.x+20+"px";

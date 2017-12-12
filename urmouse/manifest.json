@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["platform.js", "req.js","main.js"]
+      "js": ["platform.js", "main.js"]
     }
   ]
 

@@ -13,6 +13,8 @@ class notes on canvas and bounce
 http://netart.rocks/notes/dom
 
 4.what kind of info (navigator,browserfingerprinting...)
+https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+
 
 using a library *platform.js* to get browser's name
 

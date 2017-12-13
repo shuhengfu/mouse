@@ -6,8 +6,7 @@ m.style.position = "fixed";
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 //以下修改点击鼠标以后出现的信息内容 ``符号是可以让内容竖排下来
-var codeString = `
-var m = document.createElement('div');
+var codeString = `var m = document.createElement('div');
 document.body.appendChild(m);
 m.style.position = "fixed";
 
@@ -90,8 +89,8 @@ function MouseDown(e){
   pre.style.top = e.y+20+"px";
 	pre.style.fontSize = 12+"px";
 	pre.style.lineHeight = 25+"px";
-	pre.style.color = "white";
-  pre.style.backgroundColor = "red";
+	pre.style.color = "green";
+  pre.style.backgroundColor = "black";
   document.body.appendChild(pre);
 }
 
@@ -111,7 +110,7 @@ function updateMouseXY(e){
 
 //以下是可以添加的信息内容
 let greet = document.createElement('div');
-greet.textContent = "* Hello there! It's good to know that the website you are visiting knows lots of your info, such as... *";
+greet.textContent = "* Hello there! It's good to know that the website you are visiting knows lots of your info, such as... ";
 
  let mousePos = document.createElement('div');
  mousePos.textContent = "your mouse is located at "+ e.x + "(x)" + " " + e.y + "(y)" + " in this window";
@@ -153,7 +152,7 @@ greet.textContent = "* Hello there! It's good to know that the website you are v
  cookie.textContent = "btw, here is the cookie on this page, in case you have any interest "+document.cookie;
 
 let bye = document.createElement('div');
-bye.textContent = "* and thank you for sharing without knowing (: *";
+bye.textContent = " and thank you for sharing without knowing (: *";
 
 //i got the cookie info but donno what it really stands for with
 //bunch of letters and numbers...and how to convert it into human language

@@ -48,51 +48,50 @@ function updateMouseXY(e){
 
 
 //以下是可以添加的信息内容
+let greet = document.createElement('div');
+greet.textContent = "* Hello there! It's good to know that the website you are visiting knows lots of your info, such as... *";
 
  let mousePos = document.createElement('div');
- mousePos.textContent = `Hello there, we've noticed that: your mouse is moving at `+ e.x + "(x)" + " " + e.y + "(y)" + " in this window";
+ mousePos.textContent = "your mouse is located at "+ e.x + "(x)" + " " + e.y + "(y)" + " in this window";
 
- let appV = document.createElement('div');
- appV.textContent = "your browser version is " + navigator.appVersion;
+ let screenRes = document.createElement('div');
+ screenRes.textContent = "your screen resolution is " + screen.width + "(px) x "+ screen.height + "(px)";
 
- // let appName = document.createElement('div');
- // appName.textContent = "your browser is " + navigator.appName;
-// Netscape??
-let cookieEnabled = document.createElement('div');
-cookieEnabled.textContent = "and your cookie is " + navigator.cookieEnabled +"ly enabled";
-
- let hostName = document.createElement('div');
- hostName.textContent = "your are browsing " +location.hostname;
-
- let lastPage = document.createElement('div');
- lastPage.textContent = "your just browsed " + document.referrer;
- //need an if condition if it's the very first page the person open??
-
- let osCPU = document.createElement('div');
- osCPU.textContent = "and you have " + navigator.hardwareConcurrency + " CPU running in your computer";
-
- let cpuInfo = document.createElement('div');
- cpuInfo.textContent = "Information about the OS and CPU: " + navigator.oscpu;
 
  let appCodeName = document.createElement('div');
- appCodeName.textContent = "and you are using the " + platform.name + " browser!!";
+ appCodeName.textContent = "you are using the " + platform.name + " browser!";
 
- // let cpuClass = document.createElement('div');
- // cpuClass.textContent = "The class of CPU: " + navigator.cpuClass;
+ let hostName = document.createElement('div');
+ hostName.textContent = "and your are browsing " +location.hostname;
+
+ let lastPage = document.createElement('div');
+ lastPage.textContent = "while your just browsed " + document.referrer;
+ //need an if condition if they browsed nothing before "nothing"
+
+ let appV = document.createElement('div');
+ appV.textContent = "and your browser version is " + navigator.appVersion;
+
+ let cpuInfo = document.createElement('div');
+ cpuInfo.textContent = "well, hardware wise, you're running on"+ navigator.oscpu;
 
  let osPlatform = document.createElement('div');
  osPlatform.textContent = "your system platform is " + navigator.platform;
 
- let language = document.createElement('div');
- language.textContent = "system language " + navigator.systemLanguage;
+ let osCPU = document.createElement('div');
+ osCPU.textContent = "you have " + navigator.hardwareConcurrency + " CPUs running in your computer. Isn't that exciting?!";
 
 let timeZone = document.createElement('div');
-timeZone.textContent = "btw, you are in this time zone " + Intl.DateTimeFormat()
+timeZone.textContent = "and you are in the time zone of " + Intl.DateTimeFormat()
 .resolvedOptions()
 .timeZone + " ,aren't you?";
+//hope you enjoy the daylight/nighttime?
+//if condition with realtime of certain timezone...nm
 
 let cookie = document.createElement('div');
-cookie.textContent = document.cookie;
+cookie.textContent = "btw, here is the cookie on this page, in case you have any interest "+document.cookie;
+
+let bye = document.createElement('div');
+bye.textContent = "* and thank you for sharing without knowing (: *";
 
 // let cookie = document.createElement('div');
 // cookie.textContent = "cookie " + getCookie();
@@ -115,30 +114,6 @@ cookie.textContent = document.cookie;
 
 // let pathName = document.createElement('div');
 // pathName.textContent = "and you are searching " + location.pathname;
-
-
-//navigator.plugins
-
- // let appPlugins = document.createElement('div');
- // appPlugins.textContent = navigator.plugins;
-// ~~~~~~~~~~~~~~~~~~~
-// let plugins = [
-// 	{name:'first'},
-//   {name:'second'},
-//   {name:'third'},
-//   {name:'fourth'},
-//   {name:'fifth'}
-// ];
-//
-// let pluginsArray = document.createElement('div');
-//
-// for(var i=0;i<plugins.length;i++){
-// 	pluginsArray.textContent += plugins[i].name+', ';
-// }
-// pluginsArray.textContent = navigator.plugins;
-
-//m.appendChild(pluginsArray);
-// ~~~~~~~~~~~~~~~~~~~~~
 //userAgent language Screenresolution
 //Timezone Fonts HTTP ACCEPT Supercookies HTML5 Canvas...
 
@@ -147,25 +122,24 @@ cookie.textContent = document.cookie;
 //document.cookie;
 /*~~~~*/
 //每加一项data 都需要在这里叫一下 关联
+  m.appendChild(greet);
   m.appendChild(mousePos);
-  m.appendChild(appV);
-	// m.appendChild(appName);
-	m.appendChild(cookieEnabled);
+	m.appendChild(screenRes);
+	m.appendChild(appCodeName);
 	m.appendChild(hostName);
 	m.appendChild(lastPage);
-	m.appendChild(language);
-  // m.appendChild(appPlugins);
+ 	m.appendChild(appV);
+	// m.appendChild(language);
+	m.appendChild(cpuInfo);
+	m.appendChild(osPlatform);
   m.appendChild(osCPU);
-  m.appendChild(cpuInfo);
-  //m.appendChild(cpuClass);
-  m.appendChild(osPlatform);
-	m.appendChild(appCodeName);
-	// m.appendChild(pathName);
   m.appendChild(timeZone);
   m.appendChild(cookie);
+	m.appendChild(bye);
 //i got the cookie info but donno what it really stands for with
 //bunch of letters and numbers...and how to convert it into human language
 /*~~~~*/
+
   //style of the mousemove
 	m.style.left = e.x+20+"px";
   m.style.top = e.y+20+"px";
@@ -173,9 +147,6 @@ cookie.textContent = document.cookie;
   m.style.backgroundColor = "black";
 	m.style.lineHeight = 25+"px";
 	m.style.padding = 15+"px";
-	// m.style.marginBottom = "50px";
-	// m.style.borderBottom = "50px";
-	// m.style.marginLeft = "10px";
 	m.style.fontSize = 12+"px";
 
 }
